@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manage paperless billing</title>
+  <style>
+    :root { --navy:#0b263d; --teal:#16a39a; --ink:#183044; --muted:#5c7082; --line:#dbe4ea; --soft:#f4f8fa; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--ink); background:white; }
+    header { height:72px; background:var(--navy); color:white; display:flex; align-items:center; padding:0 40px; gap:22px; }
+    .brand { font-size:22px; font-weight:700; letter-spacing:.2px; }
+    .demo { color:#c8d7e2; font-size:14px; border-left:1px solid #527087; padding-left:22px; }
+    .shell { display:grid; grid-template-columns:260px minmax(0, 1fr) 230px; min-height:760px; }
+    nav { padding:34px 26px; background:var(--soft); border-right:1px solid var(--line); }
+    nav h3 { margin:0 0 18px; font-size:13px; text-transform:uppercase; letter-spacing:1.2px; color:var(--muted); }
+    nav a { display:block; padding:10px 12px; margin:3px 0; color:var(--ink); text-decoration:none; border-radius:5px; font-size:15px; }
+    nav a.active { background:white; color:var(--teal); font-weight:700; box-shadow:0 1px 4px rgba(13,38,61,.08); }
+    main { padding:48px 64px 80px; max-width:860px; }
+    .crumb { font-size:14px; color:var(--muted); margin-bottom:22px; }
+    h1 { font-size:42px; line-height:1.1; margin:0 0 18px; color:var(--navy); }
+    h2 { font-size:24px; margin:34px 0 12px; color:var(--navy); }
+    p, li { font-size:17px; line-height:1.6; }
+    .notice { padding:16px 18px; background:#fff7e8; border-left:4px solid #f1a33a; margin:24px 0; font-size:15px; line-height:1.45; }
+    ol { padding-left:24px; }
+    ol li { padding:4px 0 4px 7px; }
+    aside { padding:48px 28px; border-left:1px solid var(--line); }
+    aside h3 { font-size:14px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+    aside a { display:block; color:var(--teal); text-decoration:none; margin:13px 0; font-size:14px; }
+    footer { position:fixed; right:22px; bottom:18px; font-size:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Product documentation</div>
+    <div class="demo">Portfolio sample</div>
+  </header>
+  <div class="shell">
+    <nav>
+      <h3>User guides</h3>
+      <a class="active" href="#">Manage paperless billing</a>
+      <a href="#">Customer preferences</a>
+      <a href="#">Account history</a>
+      <h3 style="margin-top:32px">Release notes</h3>
+      <a href="#">Sprint 15</a>
+      <a href="#">Sprint 14</a>
+    </nav>
+    <main>
+      <div class="crumb">User guides / Billing preferences</div>
+      <h1>Manage paperless billing</h1>
+      <p>Use the paperless billing setting to record how a customer wants to receive future bills.</p>
+      <div class="notice"><strong>Portfolio sample:</strong> This user guide demonstrates my approach to clear, task-based product documentation.</div>
+      <h2>Before you begin</h2>
+      <ul>
+        <li>Confirm that you have permission to update customer preferences.</li>
+        <li>Verify the correct account and service address.</li>
+      </ul>
+      <h2>Turn on paperless billing</h2>
+      <ol>
+        <li>Open the customer's account.</li>
+        <li>Select <strong>Billing preferences</strong>.</li>
+        <li>Under <strong>Bill delivery</strong>, select <strong>Paperless billing</strong>.</li>
+        <li>Confirm the customer's email address.</li>
+        <li>Select <strong>Save</strong>.</li>
+      </ol>
+      <p>The system displays a confirmation message and records the change in the account history.</p>
+    </main>
+    <aside>
+      <h3>On this page</h3>
+      <a href="#">Before you begin</a>
+      <a href="#">Turn on paperless billing</a>
+      <a href="#">Turn off paperless billing</a>
+      <a href="#">Troubleshooting</a>
+    </aside>
+  </div>
+  <footer>Prepared by Veronica Phillip, CPTC</footer>
+</body>
+</html>
