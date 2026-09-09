@@ -1,6 +1,6 @@
 # Technical Writing Portfolio
 
-A portfolio of SaaS user guides, workbooks and Docs-as-Code projects.
+A portfolio of SaaS user guides, workbooks, presentations, infographics and Docs-as-Code projects.
 
 ## Featured sample: SaaS Paperless Billing User Guide
 
@@ -12,11 +12,11 @@ I wrote the source in Markdown and used a Docs-as-Code workflow to produce consi
 
 **Skills demonstrated:** Technical writing · SaaS documentation · Task-based writing · Information architecture · Markdown · Docs-as-Code · Single-source publishing
 
-## Workbook sample
+## Portfolio sections
 
-### [View Ready When It Matters](./Workbooks/Ready-When-It-Matters-Workbook.pdf)
-
-An 11-page personal-readiness workbook demonstrating long-document editing, information organization, workbook design, tables, checklists and PDF production.
+- [SaaS User Guides](./SaaS-User-Guides/)
+- [Workbooks](./Workbooks/)
+- [Presentations & Infographics](./Presentations-and-Infographics/)
 
 ---
 
