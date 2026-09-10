@@ -3,76 +3,208 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Manage paperless billing</title>
+  <meta name="description" content="Technical writing and documentation systems portfolio by Veronica Phillip, CPTC.">
+  <title>Veronica Phillip, CPTC | Technical Writing Portfolio</title>
   <style>
-    :root { --navy:#0b263d; --teal:#16a39a; --ink:#183044; --muted:#5c7082; --line:#dbe4ea; --soft:#f4f8fa; }
+    :root {
+      --navy:#102a43;
+      --navy-2:#183b56;
+      --orange:#ff6700;
+      --purple:#5e17eb;
+      --blue:#4d4dff;
+      --ink:#243b53;
+      --muted:#627d98;
+      --line:#d9e2ec;
+      --soft:#f5f7fa;
+      --white:#fff;
+      --shadow:0 10px 30px rgba(16,42,67,.09);
+    }
     * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--ink); background:white; }
-    header { height:72px; background:var(--navy); color:white; display:flex; align-items:center; padding:0 40px; gap:22px; }
-    .brand { font-size:22px; font-weight:700; letter-spacing:.2px; }
-    .demo { color:#c8d7e2; font-size:14px; border-left:1px solid #527087; padding-left:22px; }
-    .shell { display:grid; grid-template-columns:260px minmax(0, 1fr) 230px; min-height:760px; }
-    nav { padding:34px 26px; background:var(--soft); border-right:1px solid var(--line); }
-    nav h3 { margin:0 0 18px; font-size:13px; text-transform:uppercase; letter-spacing:1.2px; color:var(--muted); }
-    nav a { display:block; padding:10px 12px; margin:3px 0; color:var(--ink); text-decoration:none; border-radius:5px; font-size:15px; }
-    nav a.active { background:white; color:var(--teal); font-weight:700; box-shadow:0 1px 4px rgba(13,38,61,.08); }
-    main { padding:48px 64px 80px; max-width:860px; }
-    .crumb { font-size:14px; color:var(--muted); margin-bottom:22px; }
-    h1 { font-size:42px; line-height:1.1; margin:0 0 18px; color:var(--navy); }
-    h2 { font-size:24px; margin:34px 0 12px; color:var(--navy); }
-    p, li { font-size:17px; line-height:1.6; }
-    .notice { padding:16px 18px; background:#fff7e8; border-left:4px solid #f1a33a; margin:24px 0; font-size:15px; line-height:1.45; }
-    ol { padding-left:24px; }
-    ol li { padding:4px 0 4px 7px; }
-    aside { padding:48px 28px; border-left:1px solid var(--line); }
-    aside h3 { font-size:14px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
-    aside a { display:block; color:var(--teal); text-decoration:none; margin:13px 0; font-size:14px; }
-    footer { position:fixed; right:22px; bottom:18px; font-size:12px; color:var(--muted); }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Inter,Segoe UI,Arial,sans-serif; color:var(--ink); background:var(--soft); }
+    a { color:inherit; }
+    .layout { display:grid; grid-template-columns:285px minmax(0,1fr); min-height:100vh; }
+    aside { position:sticky; top:0; height:100vh; padding:34px 28px; background:var(--navy); color:white; overflow:auto; }
+    .avatar { width:92px; height:92px; object-fit:cover; border-radius:50%; border:4px solid rgba(255,255,255,.22); }
+    .name { margin:17px 0 5px; font-size:23px; line-height:1.2; }
+    .credential { color:#c9d8e5; font-size:14px; line-height:1.45; }
+    nav { margin-top:32px; }
+    nav a { display:block; padding:10px 12px; margin:4px 0; border-radius:7px; color:#d9e7f2; text-decoration:none; font-size:14px; }
+    nav a:hover { background:rgba(255,255,255,.1); color:white; }
+    .side-links { margin-top:28px; padding-top:22px; border-top:1px solid rgba(255,255,255,.16); }
+    .side-links a { display:inline-block; margin:0 8px 8px 0; color:white; font-size:13px; }
+    main { min-width:0; }
+    .hero { padding:64px clamp(28px,6vw,88px) 50px; background:white; border-bottom:1px solid var(--line); }
+    .eyebrow { color:var(--purple); font-weight:800; text-transform:uppercase; letter-spacing:1.4px; font-size:13px; }
+    h1 { max-width:850px; margin:12px 0 18px; color:var(--navy); font-size:clamp(38px,5vw,64px); line-height:1.05; }
+    .lead { max-width:780px; margin:0; color:var(--muted); font-size:20px; line-height:1.6; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .button { display:inline-block; padding:12px 18px; border-radius:7px; background:var(--purple); color:white; text-decoration:none; font-weight:750; }
+    .button.secondary { background:white; color:var(--navy); border:1px solid var(--line); }
+    .stats { display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+    .stat { padding:12px 16px; border-left:4px solid var(--orange); background:#fff7f1; color:var(--navy); font-weight:700; }
+    .content { padding:48px clamp(28px,6vw,88px) 80px; }
+    section { scroll-margin-top:24px; margin-bottom:54px; }
+    h2 { margin:0 0 10px; color:var(--navy); font-size:30px; }
+    .section-intro { max-width:760px; margin:0 0 24px; color:var(--muted); line-height:1.6; }
+    .featured { display:grid; grid-template-columns:1fr auto; gap:28px; align-items:center; padding:28px; background:linear-gradient(135deg,#fff 0%,#f5f0ff 100%); border:1px solid #ded3f8; border-top:5px solid var(--purple); border-radius:12px; box-shadow:var(--shadow); }
+    .featured h3 { margin:0 0 9px; color:var(--navy); font-size:24px; }
+    .featured p { margin:0; line-height:1.6; color:var(--muted); }
+    .tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:16px; }
+    .tag { padding:5px 9px; border-radius:20px; background:#eee8ff; color:#4a12bd; font-size:12px; font-weight:750; }
+    .cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+    .card { padding:24px; background:white; border:1px solid var(--line); border-radius:11px; box-shadow:0 4px 14px rgba(16,42,67,.05); }
+    .card:hover { transform:translateY(-2px); box-shadow:var(--shadow); transition:.2s ease; }
+    .icon { font-size:26px; }
+    .card h3 { margin:10px 0 8px; color:var(--navy); font-size:20px; }
+    .card p { margin:0 0 16px; color:var(--muted); line-height:1.55; }
+    .sample-links { margin:0; padding:0; list-style:none; }
+    .sample-links li { padding:7px 0; border-top:1px solid #edf2f7; }
+    .sample-links a { color:var(--blue); text-decoration:none; font-weight:650; font-size:14px; }
+    .sample-links a:hover { text-decoration:underline; }
+    footer { padding:28px clamp(28px,6vw,88px); background:var(--navy); color:#d9e7f2; font-size:14px; }
+    @media (max-width:900px) {
+      .layout { grid-template-columns:1fr; }
+      aside { position:relative; height:auto; }
+      nav { display:flex; flex-wrap:wrap; gap:4px; }
+      nav a { padding:7px 9px; }
+      .cards { grid-template-columns:1fr; }
+    }
+    @media (max-width:620px) {
+      .featured { grid-template-columns:1fr; }
+      .hero { padding-top:42px; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="brand">Product documentation</div>
-    <div class="demo">Portfolio sample</div>
-  </header>
-  <div class="shell">
-    <nav>
-      <h3>User guides</h3>
-      <a class="active" href="#">Manage paperless billing</a>
-      <a href="#">Customer preferences</a>
-      <a href="#">Account history</a>
-      <h3 style="margin-top:32px">Release notes</h3>
-      <a href="#">Sprint 15</a>
-      <a href="#">Sprint 14</a>
-    </nav>
-    <main>
-      <div class="crumb">User guides / Billing preferences</div>
-      <h1>Manage paperless billing</h1>
-      <p>Use the paperless billing setting to record how a customer wants to receive future bills.</p>
-      <div class="notice"><strong>Portfolio sample:</strong> This user guide demonstrates my approach to clear, task-based product documentation.</div>
-      <h2>Before you begin</h2>
-      <ul>
-        <li>Confirm that you have permission to update customer preferences.</li>
-        <li>Verify the correct account and service address.</li>
-      </ul>
-      <h2>Turn on paperless billing</h2>
-      <ol>
-        <li>Open the customer's account.</li>
-        <li>Select <strong>Billing preferences</strong>.</li>
-        <li>Under <strong>Bill delivery</strong>, select <strong>Paperless billing</strong>.</li>
-        <li>Confirm the customer's email address.</li>
-        <li>Select <strong>Save</strong>.</li>
-      </ol>
-      <p>The system displays a confirmation message and records the change in the account history.</p>
-    </main>
+  <div class="layout">
     <aside>
-      <h3>On this page</h3>
-      <a href="#">Before you begin</a>
-      <a href="#">Turn on paperless billing</a>
-      <a href="#">Turn off paperless billing</a>
-      <a href="#">Troubleshooting</a>
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/45946096?v=4" alt="Veronica Phillip, CPTC">
+      <h2 class="name">Veronica Phillip, CPTC</h2>
+      <div class="credential">Documentation Systems &amp; AI Implementation Specialist<br>Lead Technical Writer</div>
+      <nav aria-label="Portfolio sections">
+        <a href="#featured">Featured project</a>
+        <a href="#docs-as-code">Docs-as-Code</a>
+        <a href="#reports">Professional Reports</a>
+        <a href="#training">Instruction Design &amp; Training</a>
+        <a href="#workbooks">Workbooks</a>
+        <a href="#visuals">Presentations &amp; Infographics</a>
+        <a href="#before-after">Before &amp; After</a>
+      </nav>
+      <div class="side-links">
+        <a href="https://github.com/vikkivero">GitHub profile</a>
+        <a href="https://veronicaphillip.com/">Website</a>
+        <a href="https://www.linkedin.com/in/veronicaphillip/">LinkedIn</a>
+      </div>
     </aside>
+
+    <main>
+      <header class="hero">
+        <div class="eyebrow">Technical Writing Portfolio</div>
+        <h1>Documentation built for people, products and AI.</h1>
+        <p class="lead">A selection of Docs-as-Code projects, SaaS user guides, professional reports, training materials, workbooks and visual documentation.</p>
+        <div class="actions">
+          <a class="button" href="#featured">Explore the work</a>
+          <a class="button secondary" href="https://github.com/vikkivero/technical-writing-portfolio">View repository</a>
+        </div>
+        <div class="stats">
+          <div class="stat">20+ years in IT, network technology &amp; SaaS</div>
+          <div class="stat">Work supporting teams across 4 continents</div>
+          <div class="stat">CPTC-certified</div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section id="featured">
+          <h2>Featured Project</h2>
+          <p class="section-intro">A customer-facing SaaS guide produced through a Docs-as-Code workflow.</p>
+          <article class="featured">
+            <div>
+              <h3>Manage Paperless Billing</h3>
+              <p>I transformed limited source material into a clear, task-based user guide organized around prerequisites, actions and expected outcomes. Markdown served as the single source for consistent HTML and PDF publishing.</p>
+              <div class="tags">
+                <span class="tag">Docs-as-Code</span>
+                <span class="tag">Markdown</span>
+                <span class="tag">SaaS</span>
+                <span class="tag">Single-source publishing</span>
+              </div>
+            </div>
+            <a class="button" href="Docs-as-Code/Manage-Paperless-Billing.pdf" target="_blank">View PDF</a>
+          </article>
+        </section>
+
+        <section id="portfolio">
+          <h2>Portfolio Categories</h2>
+          <p class="section-intro">Select any sample to open the finished document, presentation or visual.</p>
+          <div class="cards">
+            <article class="card" id="docs-as-code">
+              <div class="icon">💻</div>
+              <h3>Docs-as-Code</h3>
+              <p>Git-based technical documentation written in Markdown and published across formats.</p>
+              <ul class="sample-links">
+                <li><a href="Docs-as-Code/Manage-Paperless-Billing.pdf" target="_blank">Manage Paperless Billing — PDF</a></li>
+                <li><a href="Docs-as-Code/Manage-Paperless-Billing.md" target="_blank">Manage Paperless Billing — Markdown</a></li>
+              </ul>
+            </article>
+
+            <article class="card" id="reports">
+              <div class="icon">📊</div>
+              <h3>Professional Reports</h3>
+              <p>Research-driven reports that turn complex economic and industry information into usable analysis.</p>
+              <ul class="sample-links">
+                <li><a href="Professional-Reports/CARICOM-Sugar-Analysis-Professional-Report.pdf" target="_blank">CARICOM Sugar Analysis</a></li>
+              </ul>
+            </article>
+
+            <article class="card" id="training">
+              <div class="icon">🎓</div>
+              <h3>Instruction Design &amp; Training</h3>
+              <p>Onboarding decks, procedural training and job aids designed for practical use.</p>
+              <ul class="sample-links">
+                <li><a href="Instruction-Design-and-Training/Service-Advisor-Onboarding-Training-Deck.pdf" target="_blank">Service Advisor Onboarding</a></li>
+                <li><a href="Instruction-Design-and-Training/Service-Pricing-Guide-Training-Deck.pdf" target="_blank">Service Pricing Guide</a></li>
+                <li><a href="Instruction-Design-and-Training/Security-Officer-Patrol-Duty-Checklist.png" target="_blank">Security Officer Patrol Checklist</a></li>
+                <li><a href="https://github.com/vikkivero/technical-writing-portfolio/tree/main/Instruction-Design-and-Training">View all training samples</a></li>
+              </ul>
+            </article>
+
+            <article class="card" id="workbooks">
+              <div class="icon">📘</div>
+              <h3>Workbooks</h3>
+              <p>Long-form, activity-based documents that organize complex information into clear decisions and actions.</p>
+              <ul class="sample-links">
+                <li><a href="Workbooks/Ready-When-It-Matters-Workbook.pdf" target="_blank">Ready When It Matters Workbook</a></li>
+              </ul>
+            </article>
+
+            <article class="card" id="visuals">
+              <div class="icon">🎨</div>
+              <h3>Presentations &amp; Infographics</h3>
+              <p>Visual explanations of workflows, onboarding processes and technical relationships.</p>
+              <ul class="sample-links">
+                <li><a href="Presentations-and-Infographics/New-Employee-Onboarding-Presentation.pdf" target="_blank">New Employee Onboarding</a></li>
+                <li><a href="Presentations-and-Infographics/SaaS-Identity-Flow-Infographic.pdf" target="_blank">SaaS Identity Flow Infographic</a></li>
+                <li><a href="Presentations-and-Infographics/Plumbing-Concept-Design-Customer-Data-Flow.pdf" target="_blank">Customer Data Flow</a></li>
+                <li><a href="Presentations-and-Infographics/SaaS-Identity-Flow-Presentation.pdf" target="_blank">SaaS Identity Flow Presentation</a></li>
+              </ul>
+            </article>
+
+            <article class="card" id="before-after">
+              <div class="icon">✨</div>
+              <h3>Before &amp; After</h3>
+              <p>Examples showing improvements to content structure, usability and visual presentation.</p>
+              <ul class="sample-links">
+                <li><a href="Before-and-After/Before-and-After-Checklist.png" target="_blank">Checklist Redesign</a></li>
+                <li><a href="Before-and-After/Before-and-After-Electronic-Manual.png" target="_blank">Electronic Manual Redesign</a></li>
+                <li><a href="Before-and-After/Before-and-After-Questionnaire.png" target="_blank">Questionnaire Redesign</a></li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <footer>Prepared by <strong>Veronica Phillip, CPTC</strong> · ProTech Write &amp; Edit Inc.</footer>
+    </main>
   </div>
-  <footer>Prepared by Veronica Phillip, CPTC</footer>
 </body>
 </html>
