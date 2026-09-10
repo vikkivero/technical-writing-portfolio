@@ -1,6 +1,6 @@
 # Technical Writing Portfolio
 
-A portfolio of SaaS user guides, workbooks, presentations, infographics, training materials and Docs-as-Code projects.
+A portfolio of SaaS user guides, professional reports, workbooks, presentations, infographics, training materials and Docs-as-Code projects.
 
 ## Featured sample: SaaS Paperless Billing User Guide
 
@@ -16,6 +16,7 @@ I wrote the source in Markdown and used a Docs-as-Code workflow to produce consi
 
 - [Docs-as-Code](./Docs-as-Code/)
 - [SaaS User Guides](./SaaS-User-Guides/)
+- [Professional Reports](./Professional-Reports/)
 - [Instruction Design & Training](./Instruction-Design-and-Training/)
 - [Workbooks](./Workbooks/)
 - [Presentations & Infographics](./Presentations-and-Infographics/)
