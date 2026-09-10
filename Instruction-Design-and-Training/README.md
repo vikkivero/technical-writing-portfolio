@@ -12,6 +12,7 @@ Training samples that turn roles, systems and service processes into clear, prac
 - [Emergency Codes Quick-Reference Card](./Emergency-Codes-Quick-Reference-Card.png)
 - [Fire Response Quick-Reference Card](./Fire-Response-Quick-Reference-Card.png)
 - [Hardware Identification and Troubleshooting Quick Reference](./Hardware-Identification-and-Troubleshooting-Quick-Reference.png)
+- [Security Officer Patrol Duty Checklist](./Security-Officer-Patrol-Duty-Checklist.png) - A practical shift checklist covering patrol preparation, scheduled rounds, physical security, life-safety hazards and reporting.
 
 **Skills demonstrated:** Instruction design · Employee onboarding · Training materials · Quick-reference design · Process documentation · Visual communication · Software procedures
 
